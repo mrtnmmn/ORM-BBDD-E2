@@ -1,0 +1,5 @@
+create procedure prIncrementarPrecio (in param char(5), param2 int)
+begin
+    update Contratos set coPrecio=coPrecio*(1 + param2/100) where coCodInmueble in
+        (select inCodigo from Inmuebles where inCodZona = param) ;
+end;

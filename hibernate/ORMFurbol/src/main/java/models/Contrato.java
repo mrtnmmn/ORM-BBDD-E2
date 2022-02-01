@@ -1,9 +1,6 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -25,6 +22,15 @@ public class Contrato {
 
     @Column(name = "coClausula")
     private int clausula;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "coNumContrato")
+    private Futbolista futbolista;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "coNumContrato")
+    private Equipo equipo;
+
 
 
 }
